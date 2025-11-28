@@ -30,22 +30,65 @@ a{text-decoration:none;color:inherit}
 /* ==================== responsive mobile  ==================== */
 /* Brand section */
 .brand {
-  display: flex;
-  align-items: center;
-  gap: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 .logo {
-  width: 60px;
-  height: 60px;
-  border-radius: 10px;
-  overflow: hidden;
+    width: 55px;
+    height: 55px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 .logo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.brand-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.1;
+}
+
+.brand-text .title {
+    font-size: 17px;
+    font-weight: 800;
+}
+
+.brand-text .location {
+    font-size: 11px;
+    color: var(--muted);
+}
+
+/* MOBILE RESPONSIVE FIX */
+@media(max-width: 900px){
+    nav.nav-links { display:none; }
+    .mobile-menu { display:block; }
+
+    header {
+        padding: 12px 16px;
+    }
+
+    .brand {
+        gap: 8px;
+    }
+
+    .logo {
+        width: 50px;
+        height: 50px;
+    }
+
+    .brand-text .title {
+        font-size: 15px;
+    }
+
+    .brand-text .location {
+        font-size: 10px;
+    }
 }
 
 /* Navigation */
@@ -62,6 +105,8 @@ a{text-decoration:none;color:inherit}
   color: white;
   cursor: pointer;
 }
+
+
 
 /* Mobile dropdown */
 .mobile-nav {
@@ -92,17 +137,16 @@ a{text-decoration:none;color:inherit}
 
 
 /* ==================== HEADER ==================== */
-header{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:22px 40px;
-  background:rgba(255,255,255,0.03);
-  backdrop-filter:blur(6px);
-  position:sticky;
-  top:0;
-  z-index:50;
-  flex-wrap:wrap;
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 20px;
+    background: rgba(0,0,0,0.35);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .brand{
@@ -299,32 +343,29 @@ footer{
 
 
 <header>
-  <div class="brand">
-    <!-- Logo -->
-    <div class="logo">
-      <img src="logo1.png" alt="The Mehfil Makers Logo">
+    <div class="brand">
+        <div class="logo">
+            <img src="logo1.png" />
+        </div>
+
+        <div class="brand-text">
+            <div class="title">The Mehfil Makers</div>
+            <div class="location">Amravati • Pune • Mumbai</div>
+        </div>
     </div>
 
-    <!-- Text -->
-    <div class="brand-text">
-      <div style="font-weight:800;">The Mehfil Makers</div>
-      <div style="font-size:12px;color:var(--muted);">Amravati • Pune • Mumbai</div>
+    <nav class="nav-links">
+        <a href="#services">Services</a>
+        <a href="#gallery">Gallery</a>
+        <a href="#about">About</a>
+        <a href="#contact" class="cta">Book Now</a>
+    </nav>
+
+    <div class="mobile-menu" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
     </div>
-  </div>
-
-  <!-- Navigation -->
-  <nav class="nav-links">
-      <a href="#services">Services</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#about">About</a>
-      <a href="#contact" class="cta">Book Now</a>
-  </nav>
-
-  <!-- Mobile Menu Button -->
-  <div class="mobile-menu" onclick="toggleMenu()">
-    <i class="fa-solid fa-bars"></i>
-  </div>
 </header>
+
 
 <!-- Mobile Dropdown -->
 <div id="mobileNav" class="mobile-nav">
