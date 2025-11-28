@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>The Mehfil Makers — Premium Event Management</title>
+  <meta name="description" content="The Mehfil Makers — Professional event planning for weddings, birthdays, corporate events across Amravati, Pune & Mumbai.">
+  <style>
+    :root{
+      --bg:#0f1724;
+      --card:#0b1220;
+      --accent:#d4af37;
+      --muted:#9aa6b2;
+      --glass: rgba(255,255,255,0.04);
+      --radius:14px;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;background:linear-gradient(180deg,#071025 0%, #071827 60%);color:#e6eef6;line-height:1.5}
+    a{color:inherit;text-decoration:none}
+    header{display:flex;align-items:center;justify-content:space-between;padding:22px 40px;background:linear-gradient(90deg, rgba(255,255,255,0.02), transparent);backdrop-filter: blur(6px);position:sticky;top:0;z-index:50}
+    .brand{display:flex;gap:12px;align-items:center}
+    .logo{width:55px;height:55px;border-radius:10px;display:flex;align-items:center;justify-content:center;color:#071022;font-weight:700}
+    nav{display:flex;gap:18px;align-items:center}
+    nav a{padding:8px 12px;border-radius:10px;color:var(--muted);font-weight:600}
+    nav a.cta{background:var(--accent);color:#071022}
+
+    /* Instagram Premium Button */
+.insta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 18px;
+  background: linear-gradient(135deg, #d4af37, #f6e27a);
+  color: #071022;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 15px;
+  box-shadow: 0 0 12px rgba(212,175,55,0.45);
+  transition: 0.3s;
+}
+.insta-btn:hover {
+  box-shadow: 0 0 18px rgba(212,175,55,0.8);
+  transform: translateY(-2px);
+}
+
+.logo {
+  width: 85px;
+  height: 85px;
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
+/* Instagram Profile Card */
+.insta-card {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 20px;
+  border-radius: 14px;
+  width: 230px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+}
+
+.insta-card img {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 2px solid var(--accent);
+}
+
+.insta-card .username {
+  font-size: 16px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.insta-card .followers {
+  color: var(--muted);
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.insta-card .follow-btn {
+  display: inline-block;
+  padding: 10px 16px;
+  background: linear-gradient(135deg, #d4af37, #f6e27a);
+  color: #071022;
+  border-radius: 10px;
+  font-weight: 700;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+    /* Hero Section — Updated With Video */
+    .hero{
+      position:relative;
+      overflow:hidden;
+      min-height:90vh;
+      display:flex;
+      align-items:center;
+      padding:0;
+    }
+    .hero video{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      object-fit:cover;
+      z-index:-1;
+    }
+    .hero-overlay{
+      position:absolute;
+      top:0;left:0;
+      width:100%;height:100%;
+      background:rgba(0,0,0,0.55);
+      z-index:0;
+    }
+
+    .btn{padding:12px 18px;border-radius:12px;font-weight:700;cursor:pointer}
+    .btn.primary{background:var(--accent);color:#071022}
+    .btn.ghost{border:1px solid rgba(255,255,255,0.06);color:var(--muted);background:transparent}
+
+    .badge{background:var(--glass);padding:8px 12px;border-radius:10px;color:var(--muted)}
+
+    section{padding:48px 8%}
+    .section-title{display:flex;align-items:end;gap:12px}
+    .section-title h2{margin:0}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;margin-top:18px}
+    .card{background:linear-gradient(180deg, rgba(255,255,255,0.02), transparent);padding:18px;border-radius:12px}
+    .card h3{margin:0 0 8px}
+    .muted{color:var(--muted)}
+
+    .gallery{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+    .gallery img{width:100%;height:160px;object-fit:cover;border-radius:8px}
+
+    .about{display:flex;gap:24px;align-items:center}
+    .about .text{flex:1}
+    .about .stat{background:var(--card);padding:18px;border-radius:12px;text-align:center}
+
+    .contact-grid{display:grid;grid-template-columns:1fr 420px;gap:22px}
+    .contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 32px;
+  align-items: start;
+  margin-top: 20px;
+}
+
+/* For mobile */
+@media(max-width: 900px){
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-form {
+  background: rgba(255,255,255,0.04);
+  padding: 24px;
+  border-radius: 14px;
+  backdrop-filter: blur(6px);
+  border: 1px solid rgba(255,255,255,0.06);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.contact-form label {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 10px;
+  color: white;
+  font-size: 15px;
+  outline: none;
+  transition: 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(212,175,55,0.4);
+}
+
+.contact-form button {
+  background: var(--accent);
+  color: #071022;
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.contact-form button:hover {
+  background: #c29c2f;
+}
+
+
+    input,textarea{background:transparent;border:1px solid rgba(255,255,255,0.06);padding:12px;border-radius:10px;color:inherit}
+
+    footer{padding:28px 8%;color:var(--muted);display:flex;justify-content:space-between;align-items:center}
+
+    .whatsapp{position:fixed;right:22px;bottom:22px;background:#25d366;width:56px;height:56px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 24px rgba(37,211,102,0.18);cursor:pointer}
+
+    @media (max-width:980px){
+      .gallery{grid-template-columns:repeat(2,1fr)}
+      .contact-grid{grid-template-columns:1fr}
+    }
+    @media (max-width:520px){
+      .gallery img{height:120px}
+      .logo{width:44px;height:44px}
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+  <div class="brand">
+    
+    <!-- LOGO -->
+    <div class="logo">
+      <img src="logo1.png" alt="The Mehfil Makers Logo">
+    </div>
+          <div style="font-size:12px;color:var(--muted);">Amravati • Pune • Mumbai</div>
+
+    </div>
+    </div>
+
+  </div>
+
+  <nav>
+    <a href="#services">Services</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#about">About</a>
+    <a href="#contact" class="cta">Book Now</a>
+  </nav>
+</header>
+
+
+  <!-- ================= HERO VIDEO SECTION ================= -->
+  <section class="hero">
+
+    <video autoplay muted loop playsinline>
+      <source src="hero.mp4" type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div style="position:relative;z-index:2;width:100%;padding:80px;">
+      <h1 style="font-size:48px;font-weight:800;max-width:600px;line-height:1.2;">
+        We design <span style="color:var(--accent);">exclusive events</span><br>
+        for exceptional people
+      </h1>
+
+      <p class="muted" style="max-width:520px;margin-top:14px;font-size:18px;">
+        Turning Celebrations into Unforgettable Experiences.
+        Full-service event planning for Weddings, Birthdays & Corporate Events.
+      </p>
+
+      <div class="buttons" style="margin-top:25px;display:flex;gap:12px;">
+        <a href="#contact" class="btn primary">Get Free Quote</a>
+        <a href="#gallery" class="btn ghost">See Our Work</a>
+      </div>
+
+      <div style="margin-top:20px;display:flex;gap:14px;flex-wrap:wrap;">
+        <div class="badge">Trusted Vendors</div>
+        <div class="badge">End-to-End Service</div>
+        <div class="badge">Custom Themes & Catering</div>
+      </div>
+    </div>
+
+  </section>
+  <!-- =============== END HERO SECTION ================= -->
+
+  <main>
+    <section id="services">
+      <div class="section-title">
+        <h2>Our Services</h2>
+        <div style="flex:1"></div>
+      </div>
+      <div class="cards">
+        <div class="card">
+          <h3>Weddings & Shaadis</h3>
+          <p class="muted">Mandap, decor, catering, entertainment, photography & more.</p>
+        </div>
+        <div class="card">
+          <h3>Birthday Parties</h3>
+          <p class="muted">Theme parties, cake decor, activities & arrangements.</p>
+        </div>
+        <div class="card">
+          <h3>Corporate Events</h3>
+          <p class="muted">Conferences, product launches, award nights & celebrations.</p>
+        </div>
+        <div class="card">
+          <h3>Private Gatherings</h3>
+          <p class="muted">Anniversaries, house events, small celebrations & more.</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="gallery">
+      <div class="section-title">
+        <h2>Gallery — Recent Events</h2>
+        <div style="flex:1"></div>
+      </div>
+      <div class="gallery">
+        <img src="i1.jpg">
+        <img src="i2.jpg">
+        <img src="i3.jpg">
+        <img src="i4.jpg">
+        <img src="i5.jpg">
+        <img src="i6.jpg">
+        
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="section-title"><h2>About The Mehfil Makers</h2></div>
+      <div class="about" style="margin-top:18px">
+        <div class="text">
+          <p class="muted">We are passionate event creators bringing dreams to life with stunning designs, trusted vendors & perfect execution.</p>
+          <ul class="muted">
+            <li>100+ Events Completed</li>
+            <li>Premium Theme Specialists</li>
+            <li>Customizable Packages</li>
+          </ul>
+        </div>
+        <div style="width:320px;display:flex;flex-direction:column;gap:12px;">
+          <div class="stat"><div style="font-size:22px;font-weight:800">100+</div><div class="muted">Events</div></div>
+          <div class="stat"><div style="font-size:22px;font-weight:800">95%</div><div class="muted">Client Satisfaction</div></div>
+        </div>
+      </div>
+    </section>
+
+   <section id="contact">
+  <div class="section-title"><h2>Contact & Booking</h2></div>
+
+  <div class="contact-grid">
+
+    <!-- LEFT SIDE -->
+    <div>
+      <h3>Contact Manager</h3>
+      <p><strong>VIDHI WANKHADE</strong></p>
+
+      <p class="muted"><i class="fa-solid fa-phone"></i> &nbsp; +91 8799894801</p>
+      <p class="muted"><i class="fa-solid fa-envelope"></i> &nbsp; vidhiwankhade09@gmail.com</p>
+      <p class="muted"><i class="fa-solid fa-location-dot"></i> &nbsp; Amravati • Pune • Mumbai</p>
+
+<h4>Instagram</h4>
+
+<!-- Instagram Premium Button -->
+<a href="https://www.instagram.com/the_mehfil_makers_/" target="_blank" class="insta-btn">
+  <i class="fa-brands fa-instagram"></i> Follow Us on Instagram
+</a>
+
+<br><br>
+
+<!-- Instagram Profile Card -->
+<div class="insta-card">
+  <img src="logo.jpg" alt="Instagram DP">
+  <div class="username">@the_mehfil_makers_</div>
+  <div class="followers">2.4k+ Followers</div>
+  <a href="https://www.instagram.com/the_mehfil_makers_/" target="_blank" class="follow-btn">
+    Follow Now
+  </a>
+</div>
+
+    </div>
+
+    <!-- RIGHT SIDE FORM -->
+    <form action="https://api.web3forms.com/submit" method="POST" class="contact-form">
+
+      <input type="hidden" name="access_key" value="648a1925-4326-482c-a63f-cad03413b261">
+      <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
+      <label>Your Name</label>
+      <input type="text" name="name" placeholder="John Doe" required>
+
+      <label>Email Address</label>
+      <input type="email" name="email" placeholder="you@example.com" required>
+
+      <label>Phone Number</label>
+      <input type="tel" name="phone" placeholder="+91 00000 00000" required>
+      
+       <label>Event type </label>
+       <input type="text" placeholder="Event Type" required>
+
+      <label>Your Message</label>
+      <textarea name="message" rows="4" placeholder="Tell us about your event..." required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+  </div>
+</section>
+
+
+  </main>
+
+  <footer>
+    <div>&copy; 2025 The Mehfil Makers — All Rights Reserved</div>
+    <div class="muted">Designed by The Mehfil Makers</div>
+  </footer>
+
+  <a class="whatsapp" href="https://wa.me/918799894801" target="_blank">💬</a>
+
+</body>
+</html>
