@@ -27,6 +27,70 @@ body{
 }
 a{text-decoration:none;color:inherit}
 
+/* ==================== responsive mobile  ==================== */
+/* Brand section */
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.logo {
+  width: 60px;
+  height: 60px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.logo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Navigation */
+.nav-links {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+/* MOBILE MENU BUTTON */
+.mobile-menu {
+  display: none;
+  font-size: 26px;
+  color: white;
+  cursor: pointer;
+}
+
+/* Mobile dropdown */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #0f1724;
+  padding: 14px;
+  position: absolute;
+  top: 80px;
+  left: 0;
+  width: 100%;
+}
+
+.mobile-nav a {
+  padding: 12px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.mobile-nav.show {
+  display: flex;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .nav-links { display: none; }
+  .mobile-menu { display: block; }
+}
+
+
 /* ==================== HEADER ==================== */
 header{
   display:flex;
@@ -232,24 +296,50 @@ footer{
 <body>
 
 <!-- ==================== HEADER ==================== -->
+
+
 <header>
   <div class="brand">
-      <div class="logo">
-        <img src="logo1.png" alt="The Mehfil Makers Logo">
-      </div>
-      <div>
-        <div style="font-weight:800;font-size:18px;">The Mehfil Makers</div>
-        <div style="font-size:12px;color:var(--muted);">Amravati • Pune • Mumbai</div>
-      </div>
+    <!-- Logo -->
+    <div class="logo">
+      <img src="logo1.png" alt="The Mehfil Makers Logo">
+    </div>
+
+    <!-- Text -->
+    <div class="brand-text">
+      <div style="font-weight:800;">The Mehfil Makers</div>
+      <div style="font-size:12px;color:var(--muted);">Amravati • Pune • Mumbai</div>
+    </div>
   </div>
 
-  <nav>
-    <a href="#services">Services</a>
-    <a href="#gallery">Gallery</a>
-    <a href="#about">About</a>
-    <a href="#contact" class="cta">Book Now</a>
+  <!-- Navigation -->
+  <nav class="nav-links">
+      <a href="#services">Services</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#about">About</a>
+      <a href="#contact" class="cta">Book Now</a>
   </nav>
+
+  <!-- Mobile Menu Button -->
+  <div class="mobile-menu" onclick="toggleMenu()">
+    <i class="fa-solid fa-bars"></i>
+  </div>
 </header>
+
+<!-- Mobile Dropdown -->
+<div id="mobileNav" class="mobile-nav">
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+</div>
+
+<script>
+function toggleMenu(){
+  document.getElementById("mobileNav").classList.toggle("show");
+}
+</script>
+
 
 <!-- ==================== HERO SECTION ==================== -->
 <section class="hero">
@@ -260,8 +350,8 @@ footer{
 
   <div style="padding:80px;position:relative;z-index:2;">
     <h1 style="font-size:48px;font-weight:800;max-width:600px;">
-      We design <span style="color:var(--accent)">exclusive events</span><br>
-      for exceptional people
+      We Manage <span style="color:var(--accent)">Exclusive Events</span><br>
+      For Exceptional People
     </h1>
 
     <p class="muted" style="max-width:520px;font-size:18px;margin-top:14px;">
@@ -284,6 +374,8 @@ footer{
     <div class="card"><h3>Birthday Parties</h3><p class="muted">Theme setups, activities, cake design.</p></div>
     <div class="card"><h3>Corporate Events</h3><p class="muted">Launches, conferences, award ceremonies.</p></div>
     <div class="card"><h3>Private Events</h3><p class="muted">Anniversary, house party, special gatherings.</p></div>
+    <div class="card"><h3>Concert Events</h3><p class="muted">Music concert ,public concert, College concert.</p></div>
+
   </div>
 </section>
 
@@ -320,7 +412,7 @@ footer{
 
     <div style="width:320px;">
       <div class="stat"><div style="font-size:22px;font-weight:800">100+</div><div class="muted">Events</div></div>
-      <div class="stat"><div style="font-size:22px;font-weight:800">95%</div><div class="muted">Client Satisfaction</div></div>
+      <div class="stat"><div style="font-size:22px;font-weight:800">100%</div><div class="muted">Client Satisfaction</div></div>
     </div>
   </div>
 </section>
